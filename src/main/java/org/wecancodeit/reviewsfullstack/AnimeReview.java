@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 
 @Entity
 public class AnimeReview {
@@ -22,7 +22,7 @@ public class AnimeReview {
 	@ManyToOne
 	private Category category;
 	
-	@ManyToMany(mappedBy = "animeReviews")
+	@ManyToMany
 	private Collection<Tag> tags; 
 	
 	public AnimeReview(String title) {
@@ -64,4 +64,27 @@ public class AnimeReview {
 		return tags;
 	}
 
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AnimeReview other = (AnimeReview) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
 }

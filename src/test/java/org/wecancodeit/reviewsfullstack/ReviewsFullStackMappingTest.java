@@ -3,9 +3,10 @@ package org.wecancodeit.reviewsfullstack;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.contains;
 
 import javax.annotation.Resource;
-
+import javax.swing.text.html.parser.TagElement;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -98,18 +99,19 @@ public class ReviewsFullStackMappingTest {
 		categoryRepo.save(category);
 		
 		Tag tagOne = new Tag("Shonen");
-		tagRepo.save(tagOne);
 		Tag tagTwo = new Tag("SuperPowers");
+		tagRepo.save(tagOne);
 		tagRepo.save(tagTwo);
 		
 		AnimeReview animeReview = new AnimeReview("Naruto", category, tagOne, tagTwo);
 		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
-		long id = animeReview.getId(); 
+		long animeId = animeReview.getId(); 
 		
 		entityManger.flush();
 		entityManger.clear();
 		
-		animeReview = animeReviewRepo.findOne(id);
+		animeReview = animeReviewRepo.findOne(animeId);
+	
 		
 		assertThat(animeReview.getTags(), containsInAnyOrder(tagOne,tagTwo));
 	}
