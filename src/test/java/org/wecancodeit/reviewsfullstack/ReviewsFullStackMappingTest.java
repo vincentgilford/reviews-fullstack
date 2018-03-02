@@ -90,6 +90,12 @@ public class ReviewsFullStackMappingTest {
 		assertThat(animeReview.getCategory(),is(category));
 	}
 	
+	@Test
+	public void shouldSaveTagToAnimeReviewRelationship() {
+		
+		
+		
+	}
 	
 	
 	
