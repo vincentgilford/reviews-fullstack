@@ -79,10 +79,15 @@ public class ReviewsFullStackMappingTest {
 		categoryRepo.save(category);
 		
 		AnimeReview animeReview = new AnimeReview("Naruto", category);
-		animeReview = animeReviewRepo.save(animeReview);
+		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
 		long id = animeReview.getId(); 
 		
+		entityManger.flush(); 
+		entityManger.clear();
 		
+		animeReview = animeReviewRepo.findOne(id);
+		
+		assertThat(animeReview.getCategory(),is(category));
 	}
 	
 	
