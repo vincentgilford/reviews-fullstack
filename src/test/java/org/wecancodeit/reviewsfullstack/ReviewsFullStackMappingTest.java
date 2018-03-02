@@ -92,9 +92,24 @@ public class ReviewsFullStackMappingTest {
 	
 	@Test
 	public void shouldSaveTagToAnimeReviewRelationship() {
+		Category category = new Category("Action");
+		categoryRepo.save(category);
 		
+		Tag tagOne = new Tag("Shonen");
+		tagRepo.save(tagOne);
+		Tag tagTwo = new Tag("SuperPowers");
+		tagRepo.save(tagTwo);
 		
+		AnimeReview animeReview = new AnimeReview("Naruto", category, tagOne, tagTwo);
+		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
+		long id = animeReview.getId(); 
 		
+		entityManger.flush();
+		entityManger.clear();
+		
+		animeReview = animeReviewRepo.findOne(id);
+		
+		assertThat(animeReview.getTags(), contains(tagOne,tagTwo));
 	}
 	
 	
