@@ -5,6 +5,8 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 
 @Entity
 public class Tag {
@@ -14,6 +16,11 @@ public class Tag {
 	private long id; 
 	private String type;
 
+	
+	@ManyToMany
+	private Collection<AnimeReview> animeReviews; 
+	
+	
 	public Tag(String type) {
 		this.type = type;
 		// TODO Auto-generated constructor stub
@@ -31,4 +38,9 @@ public class Tag {
 		return id;
 	}
 
+	public Collection<AnimeReview> getAnimeReviews(){
+		return animeReviews;
+		
+	}
+	
 }

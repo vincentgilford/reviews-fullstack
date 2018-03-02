@@ -2,6 +2,8 @@ package org.wecancodeit.reviewsfullstack;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.containsInAnyOrder;
+
 import javax.annotation.Resource;
 
 
@@ -109,7 +111,7 @@ public class ReviewsFullStackMappingTest {
 		
 		animeReview = animeReviewRepo.findOne(id);
 		
-		assertThat(animeReview.getTags(), contains(tagOne,tagTwo));
+		assertThat(animeReview.getTags(), containsInAnyOrder(tagOne,tagTwo));
 	}
 	
 	
