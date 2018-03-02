@@ -23,6 +23,9 @@ public class ReviewsFullStackMappingTest {
 	@Resource
 	private TagRepository tagRepo;
 	
+	@Resource
+	private AnimeReviewRepository animeReviewRepo;
+	
 	
 	@Test
 	public void shouldSaveAndLoadCategories() {
@@ -56,10 +59,31 @@ public class ReviewsFullStackMappingTest {
 	
 	@Test
 	public void shouldSaveAndLoadAnimeReview() {
-		AnimeReview animeReview = new AnimeReview("Nautro");
+		AnimeReview animeReview = new AnimeReview("Naruto");
+		animeReview = animeReviewRepo.save(animeReview);
+		long id = animeReview.getId(); 
+		
+		entityManger.flush();
+		entityManger.clear();
+		
+		animeReview = animeReviewRepo.findOne(id);
+		
+		assertThat(animeReview.getAnimeReview(),is("Naruto"));
+	}
+	
+	
+	@Test
+	public void shouldSaveCategoryToAnimeReviewRelationship() {
+		//need category object
+		
+		
+		AnimeReview animeReview = new AnimeReview("Naruto");
+		animeReview = animeReviewRepo.save(animeReview);
+		long id = animeReview.getId(); 
 		
 		
 	}
+	
 	
 	
 	
