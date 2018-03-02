@@ -20,6 +20,9 @@ public class ReviewsFullStackMappingTest {
 	@Resource
 	private CategoryRepository categoryRepo;  
 	
+	@Resource
+	private TagRepository tagRepo;
+	
 	
 	@Test
 	public void shouldSaveAndLoadCategories() {
@@ -34,6 +37,32 @@ public class ReviewsFullStackMappingTest {
 		
 		assertThat(category.getCategory(), is("Fantasy"));
 	}
+	
+	
+	@Test
+	public void shouldSaveAndLoadTags() {
+		Tag tag = new Tag("anti-hero");
+		tag = tagRepo.save(tag);
+		long id = tag.getId();
+		
+		entityManger.flush();
+		entityManger.clear();
+		
+		tag = tagRepo.findOne(id);
+		
+		assertThat(tag.getTags(), is("anti-hero"));
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+	
 	
 	
 	

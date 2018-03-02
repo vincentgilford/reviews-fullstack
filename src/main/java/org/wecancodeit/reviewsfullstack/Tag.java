@@ -2,8 +2,16 @@ package org.wecancodeit.reviewsfullstack;
 
 import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Tag {
 
+	@Id
+	@GeneratedValue
+	private long id; 
 	private String type;
 
 	public Tag(String type) {
@@ -14,6 +22,11 @@ public class Tag {
 	public String getTags() {
 		// TODO Auto-generated method stub
 		return type;
+	}
+
+	public long getId() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }
