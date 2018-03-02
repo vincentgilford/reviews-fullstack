@@ -75,9 +75,10 @@ public class ReviewsFullStackMappingTest {
 	@Test
 	public void shouldSaveCategoryToAnimeReviewRelationship() {
 		//need category object
+		Category category = new Category("Action");
+		categoryRepo.save(category);
 		
-		
-		AnimeReview animeReview = new AnimeReview("Naruto");
+		AnimeReview animeReview = new AnimeReview("Naruto", category);
 		animeReview = animeReviewRepo.save(animeReview);
 		long id = animeReview.getId(); 
 		
