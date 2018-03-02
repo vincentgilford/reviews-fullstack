@@ -11,7 +11,7 @@ public class Tag {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Collection<Tag> getTags() {
+	public String getTags() {
 		// TODO Auto-generated method stub
 		return null;
 	}
