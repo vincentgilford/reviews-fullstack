@@ -1,6 +1,9 @@
 package org.wecancodeit.reviewsfullstack;
 
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.is;
 import javax.annotation.Resource;
+
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,9 +27,12 @@ public class ReviewsFullStackMappingTest {
 		category = categoryRepo.save(category);
 		long categoryId = category.getId();
 		
+		entityManger.flush();
+		entityManger.clear();
 		
+		category = categoryRepo.findOne(categoryId);
 		
-		
+		assertThat(category.getCategory(), is("Fantasy"));
 	}
 	
 	
