@@ -51,16 +51,15 @@ public class ReviewsFullStackMappingTest {
 		tag = tagRepo.findOne(id);
 		
 		assertThat(tag.getTags(), is("anti-hero"));
-		
-		
-		
-		
-		
-		
+	}
+	
+	
+	@Test
+	public void shouldSaveAndLoadAnimeReview() {
+		AnimeReview animeReview = new AnimeReview("Nautro");
 		
 		
 	}
-	
 	
 	
 	

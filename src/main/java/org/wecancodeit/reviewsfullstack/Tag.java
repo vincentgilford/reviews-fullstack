@@ -18,6 +18,8 @@ public class Tag {
 		this.type = type;
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Tag() {}
 
 	public String getTags() {
 		// TODO Auto-generated method stub
@@ -26,7 +28,7 @@ public class Tag {
 
 	public long getId() {
 		// TODO Auto-generated method stub
-		return 0;
+		return id;
 	}
 
 }
