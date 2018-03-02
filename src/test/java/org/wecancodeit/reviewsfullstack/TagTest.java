@@ -1,11 +1,8 @@
 package org.wecancodeit.reviewsfullstack;
 
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import java.util.Collection;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
-import org.hamcrest.core.Is;
 import org.junit.Test;
 
 
@@ -18,7 +15,7 @@ public class TagTest {
 		String check = underTest.getTags(); //need to return a collection
 		
 		assertThat(check, is("Post-Apocalyptic"));
-		
+
 	}
 	
 	

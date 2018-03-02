@@ -13,7 +13,7 @@ public class Tag {
 
 	public String getTags() {
 		// TODO Auto-generated method stub
-		return null;
+		return type;
 	}
 
 }

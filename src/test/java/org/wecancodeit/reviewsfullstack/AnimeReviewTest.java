@@ -1,5 +1,5 @@
 package org.wecancodeit.reviewsfullstack;
 
-public class ComicBookReviewTest {
+public class AnimeReviewTest {
 
 }
