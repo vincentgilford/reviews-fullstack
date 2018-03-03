@@ -28,7 +28,7 @@ public class AnimeReviewController {
 	@RequestMapping("category")
 	public String showInidivualCateogory(@RequestParam Long id, Model model) {
 		model.addAttribute("singleCategoryModel", categories.findOne(id));
-		return "singleCategoryView";
+		return "category";
 	}
 
 	@RequestMapping("review")

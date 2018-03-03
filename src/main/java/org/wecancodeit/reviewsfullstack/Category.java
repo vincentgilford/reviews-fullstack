@@ -1,9 +1,16 @@
 package org.wecancodeit.reviewsfullstack;
 
 
+import static java.util.Arrays.asList;
+import java.util.Collection;
+import java.util.HashSet;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+
 
 @Entity
 public class Category {
@@ -11,12 +18,21 @@ public class Category {
 	@GeneratedValue
 	long id;
 	private String category;
-
+	
+	@OneToMany(mappedBy = "category")
+	private Collection<AnimeReview> animeReviews;
+	
 	@SuppressWarnings("unused")
 	private Category (){}
 	
 	public Category(String category) {
 		this.category = category;
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Category(String category, AnimeReview...animeReviews) {
+		this.category = category;
+		this.animeReviews = new HashSet<>(asList(animeReviews));
 		// TODO Auto-generated constructor stub
 	}
 
@@ -29,6 +45,11 @@ public class Category {
 		// TODO Auto-generated method stub
 		return id;
 	}
+	
+	public Collection<AnimeReview> getAnimeReviews(){
+		return animeReviews;		
+	}
+	
 
 	@Override
 	public int hashCode() {
