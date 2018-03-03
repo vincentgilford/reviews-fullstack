@@ -24,8 +24,10 @@ public class AnimeReview {
 	
 	@ManyToMany
 	private Collection<Tag> tags;
-	private String animeDescription; 
+	private String animeDescription;
+	private String imageURL; 
 	
+
 	public AnimeReview(String title) {
 		this.title = title;
 		// TODO Auto-generated constructor stub
@@ -37,7 +39,19 @@ public class AnimeReview {
 //		this.title = title;
 //		this.category = category;
 //	}
-		
+	
+	public AnimeReview(String title, Category category, String animeDescription,  String imageURL, Tag...tags) {
+		// TODO Auto-generated constructor stub
+		this.title = title;
+		this.category = category;
+		this.animeDescription = animeDescription;
+		this.imageURL = imageURL;
+		this.tags = new HashSet<>(asList(tags)); 
+	}
+	
+	
+	
+	
 	public AnimeReview(String title, Category category, String animeDescription, Tag...tags) {
 		// TODO Auto-generated constructor stub
 		this.title = title;
@@ -45,6 +59,7 @@ public class AnimeReview {
 		this.animeDescription = animeDescription;
 		this.tags = new HashSet<>(asList(tags)); 
 	}
+	
 	
 	public String getAnimeDescription() {
 		return animeDescription;
@@ -60,6 +75,10 @@ public class AnimeReview {
 		return id;
 	}
 
+	public String getImageURL() {
+		return imageURL;
+	}
+	
 	public Category getCategory() {
 		// TODO Auto-generated method stub
 		return category;

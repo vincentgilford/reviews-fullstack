@@ -159,7 +159,25 @@ public class ReviewsFullStackMappingTest {
 	
 	@Test
 	public void shouldSaveAndLoadFinalParametersForAnimeRevieSite() {
+		Category category = new Category("Action");
+		categoryRepo.save(category);
 		
+		Tag tagOne = new Tag("Shonen");
+		Tag tagTwo = new Tag("SuperPowers");
+		tagRepo.save(tagOne);
+		tagRepo.save(tagTwo);
+		
+		AnimeReview animeReview = new AnimeReview("Naruto", category,"Hokage!!", "/images/naruto-and-crew.png", tagOne, tagTwo);
+		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
+		long animeId = animeReview.getId(); 
+		
+		entityManger.flush();
+		entityManger.clear();
+		
+		animeReview = animeReviewRepo.findOne(animeId);
+	
+		
+		assertThat(animeReview.getImageURL(), is("/images/naruto-and-crew.png"));
 		
 	}
 	
