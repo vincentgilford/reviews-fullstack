@@ -7,11 +7,9 @@
 	<h1>
 		Anime Review
 	</h1>	
-	<div th:each="anime: ${reviewModel}">
-		<p th:text="{anime.title}" ></p>
+	<div th:each="animeReview: ${reviewModel}">
+		<p th:text="${animeReview.title}" ></p>
 	</div>
-	
-
 	<a href="http://localhost:8080/categories">Categories</a>
 </body>
 </html>

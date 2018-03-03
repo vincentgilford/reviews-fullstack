@@ -44,7 +44,7 @@ public class AnimeReview {
 		this.tags = new HashSet<>(asList(tags)); 
 	}
 
-	public String getAnimeReview() {
+	public String getTitle() {
 		// TODO Auto-generated method stub
 		return title;
 	}

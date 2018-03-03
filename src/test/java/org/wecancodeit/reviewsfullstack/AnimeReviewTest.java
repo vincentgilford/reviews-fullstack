@@ -11,7 +11,7 @@ public class AnimeReviewTest {
 	public void shouldRetrieveAnimeTitle() {
 		AnimeReview underTest = new AnimeReview("Naruto");
 		
-		String check = underTest.getAnimeReview(); 
+		String check = underTest.getTitle(); 
 		
 		assertThat(check, is("Naruto"));
 		

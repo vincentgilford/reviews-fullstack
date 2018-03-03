@@ -71,7 +71,7 @@ public class ReviewsFullStackMappingTest {
 		
 		animeReview = animeReviewRepo.findOne(id);
 		
-		assertThat(animeReview.getAnimeReview(),is("Naruto"));
+		assertThat(animeReview.getTitle(),is("Naruto"));
 	}
 	
 	
