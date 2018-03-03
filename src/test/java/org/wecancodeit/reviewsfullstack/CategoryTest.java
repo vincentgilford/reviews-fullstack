@@ -10,7 +10,7 @@ public class CategoryTest {
 	public void shouldGetCategoryForAnimeReview() {
 		Category underTest = new Category("Fantasy");
 		
-		String check = underTest.getCategory();
+		String check = underTest.getCategoryTitle();
 		
 		assertThat(check, is("Fantasy"));
 		

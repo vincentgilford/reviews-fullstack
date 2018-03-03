@@ -17,28 +17,34 @@ public class Category {
 	@Id
 	@GeneratedValue
 	long id;
-	private String category;
+	private String categoryTitle;
 	
 	@OneToMany(mappedBy = "category")
 	private Collection<AnimeReview> animeReviews;
+	private String categoryDescription;
 	
 	@SuppressWarnings("unused")
 	private Category (){}
 	
 	public Category(String category) {
-		this.category = category;
+		this.categoryTitle = category;
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Category(String category, AnimeReview...animeReviews) {
-		this.category = category;
+	public Category(String category, String categoryDescription, AnimeReview...animeReviews) {
+		this.categoryTitle = category;
+		this.categoryDescription = categoryDescription;
 		this.animeReviews = new HashSet<>(asList(animeReviews));
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getCategory() {
+	public String getCategoryDescription() {
+		return categoryDescription;
+	}
+
+	public String getCategoryTitle() {
 		// TODO Auto-generated method stub
-		return category;
+		return categoryTitle;
 	}
 
 	public long getId() {
@@ -51,10 +57,9 @@ public class Category {
 	}
 	
 	
-	
 	@Override
 	public String toString() {
-		return "Category:" + category + "AnimeReviews:" + animeReviews;
+		return "Category:" + categoryTitle + "AnimeReviews:" + animeReviews;
 	}
 
 	@Override

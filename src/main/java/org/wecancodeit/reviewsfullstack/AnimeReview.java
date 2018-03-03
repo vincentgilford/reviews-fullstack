@@ -32,17 +32,19 @@ public class AnimeReview {
 
 	public AnimeReview() {}
 	
-	public AnimeReview(String title, Category category) {
-		this.title = title;
-		this.category = category;
-	}
+//	public AnimeReview(String title, Category category) {
+//		this.title = title;
+//		this.category = category;
+//	}
 
+	
 	public AnimeReview(String title, Category category, Tag...tags) {
 		// TODO Auto-generated constructor stub
 		this.title = title;
 		this.category = category;
 		this.tags = new HashSet<>(asList(tags)); 
 	}
+	
 
 	public String getTitle() {
 		// TODO Auto-generated method stub

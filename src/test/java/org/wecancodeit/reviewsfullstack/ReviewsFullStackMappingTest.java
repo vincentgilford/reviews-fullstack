@@ -41,8 +41,24 @@ public class ReviewsFullStackMappingTest {
 		
 		category = categoryRepo.findOne(categoryId);
 		
-		assertThat(category.getCategory(), is("Fantasy"));
+		assertThat(category.getCategoryTitle(), is("Fantasy"));
 	}
+	
+	
+	@Test public void shouldSaveAndLoadCategoriesNewDescription(){
+		Category category = new Category("Fantasy", "myth and magic");
+		category = categoryRepo.save(category);
+		long categoryId = category.getId();
+		
+
+		entityManger.flush();
+		entityManger.clear();
+		
+		category = categoryRepo.findOne(categoryId);
+		
+		assertThat(category.getCategoryDescription(), is("myth and magic"));
+	}
+	
 	
 	
 	@Test

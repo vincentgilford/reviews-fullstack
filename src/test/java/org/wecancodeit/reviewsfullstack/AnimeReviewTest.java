@@ -16,4 +16,5 @@ public class AnimeReviewTest {
 		assertThat(check, is("Naruto"));
 		
 	}
+	
 }
