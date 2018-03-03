@@ -1,6 +1,8 @@
 package org.wecancodeit.reviewsfullstack;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +30,12 @@ public class Tag {
 	
 	public Tag() {}
 
+	public Tag(String type, AnimeReview...animeReviews) {
+		this.type = type; 
+		this.animeReviews = new HashSet<>(Arrays.asList(animeReviews));
+		
+	}
+	
 	public String getTags() {
 		// TODO Auto-generated method stub
 		return type;
