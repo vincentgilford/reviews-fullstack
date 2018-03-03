@@ -8,11 +8,12 @@
 	<header>
 		<h1>Each Category</h1>
 	</header>
-	<ul th:each="animeReview : ${singleCategoryModel}">
-	<li>
-		<a th:href="@{/animeReview(id=${animeReview.id})}" th:text="${animeReview.animeReviews}"></a>
-	</li>	
-
-	</ul>
+	<div th:each="category: ${singleCategoryModel}">
+		<ul th:each="anime: ${category.animeReview}" >
+			<li>
+				<a th:href="@{/animeReview(id=${anime.id})}" th:text="${anime}"></a>
+			</li>		
+		</ul>
+	</div>
 </body>
 </html>

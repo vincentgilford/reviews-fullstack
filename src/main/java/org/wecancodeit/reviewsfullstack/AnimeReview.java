@@ -69,9 +69,11 @@ public class AnimeReview {
 	
 	@Override
 	public String toString() {
-		return "AnimeReview, Title:" + title + ", category=" + category;
+		return "AnimeReview Title:" + title;
 	}
 
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

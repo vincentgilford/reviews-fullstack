@@ -46,10 +46,16 @@ public class Category {
 		return id;
 	}
 	
-	public Collection<AnimeReview> getAnimeReviews(){
+	public Collection<AnimeReview> getAnimeReview(){
 		return animeReviews;		
 	}
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Category:" + category + "AnimeReviews:" + animeReviews;
+	}
 
 	@Override
 	public int hashCode() {
