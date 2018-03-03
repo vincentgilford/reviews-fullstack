@@ -38,9 +38,9 @@ public class AnimeReviewPopulator implements CommandLineRunner{
 		
 		
 		
-		AnimeReview naruto = new AnimeReview("Naruto", action, "he wants be Hokage", shonen, superPowers);
+		AnimeReview naruto = new AnimeReview("Naruto", action, "he wants be Hokage", "/images/naruto-and-crew.png", shonen, superPowers);
 		animeReviewRepo.save(naruto);
-		AnimeReview swordArtOnline = new AnimeReview("SwordArt Online", fantasy, "where game over means life over", shonen, videoGame);
+		AnimeReview swordArtOnline = new AnimeReview("SwordArt Online", fantasy, "where game over means life over", "/images/sao_image.png", shonen, videoGame);
 		animeReviewRepo.save(swordArtOnline);
 		
 	}
