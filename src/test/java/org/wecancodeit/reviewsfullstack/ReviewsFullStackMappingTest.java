@@ -90,14 +90,38 @@ public class ReviewsFullStackMappingTest {
 		assertThat(animeReview.getTitle(),is("Naruto"));
 	}
 	
+	@Test
+	public void shouldSaveAndLoadAnimeReviewNewReviewDescripltion() {
+		Category fantasy = new Category("Fantasy", "myth and magic");
+		fantasy = categoryRepo.save(fantasy);
+		
+		Tag shonen = new Tag("Shonen");
+		shonen = tagRepo.save(shonen);
+		AnimeReview animeReview = new AnimeReview("Naruto", fantasy,"Hokage!!", shonen);
+		animeReview = animeReviewRepo.save(animeReview);
+		long id = animeReview.getId(); 
+		
+		entityManger.flush();
+		entityManger.clear();
+		
+		animeReview = animeReviewRepo.findOne(id);
+		
+		assertThat(animeReview.getAnimeDescription(),is("Hokage!!"));
+	}
+	
+	
 	
 	@Test
 	public void shouldSaveCategoryToAnimeReviewRelationship() {
 		//need category object
-		Category category = new Category("Action");
-		categoryRepo.save(category);
+		Category action = new Category("Action");
+		categoryRepo.save(action);
 		
-		AnimeReview animeReview = new AnimeReview("Naruto", category);
+		
+		Tag shonen = new Tag("Shonen");
+		shonen = tagRepo.save(shonen);
+		
+		AnimeReview animeReview = new AnimeReview("Naruto", action,"Hokage!!", shonen);
 		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
 		long id = animeReview.getId(); 
 		
@@ -106,7 +130,7 @@ public class ReviewsFullStackMappingTest {
 		
 		animeReview = animeReviewRepo.findOne(id);
 		
-		assertThat(animeReview.getCategory(),is(category));
+		assertThat(animeReview.getCategory(),is(action));
 	}
 	
 	@Test
@@ -119,7 +143,7 @@ public class ReviewsFullStackMappingTest {
 		tagRepo.save(tagOne);
 		tagRepo.save(tagTwo);
 		
-		AnimeReview animeReview = new AnimeReview("Naruto", category, tagOne, tagTwo);
+		AnimeReview animeReview = new AnimeReview("Naruto", category,"Hokage!!", tagOne, tagTwo);
 		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
 		long animeId = animeReview.getId(); 
 		
@@ -130,6 +154,13 @@ public class ReviewsFullStackMappingTest {
 	
 		
 		assertThat(animeReview.getTags(), containsInAnyOrder(tagOne,tagTwo));
+	}
+	
+	
+	@Test
+	public void shouldSaveAndLoadFinalParametersForAnimeRevieSite() {
+		
+		
 	}
 	
 	

@@ -20,10 +20,9 @@ public class AnimeReviewPopulator implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
-		Category action = new Category("Action");
+		Category action = new Category("Action", "physical clashing");
 		categoryRepo.save(action);
-		
-		Category fantasy = new Category("Fantasy");
+		Category fantasy = new Category("Fantasy", "myth and magic");
 		categoryRepo.save(fantasy);
 		
 		Tag shonen = new Tag("Shonen");
@@ -34,9 +33,14 @@ public class AnimeReviewPopulator implements CommandLineRunner{
 		tagRepo.save(videoGame);
 		
 		
-		AnimeReview naruto = new AnimeReview("Naruto", action, shonen, superPowers);
+
+		
+		
+		
+		
+		AnimeReview naruto = new AnimeReview("Naruto", action, "he wants be Hokage", shonen, superPowers);
 		animeReviewRepo.save(naruto);
-		AnimeReview swordArtOnline = new AnimeReview("SwordArt Online", fantasy, shonen, videoGame);
+		AnimeReview swordArtOnline = new AnimeReview("SwordArt Online", fantasy, "where game over means life over", shonen, videoGame);
 		animeReviewRepo.save(swordArtOnline);
 		
 	}

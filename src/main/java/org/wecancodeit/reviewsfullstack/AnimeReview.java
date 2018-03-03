@@ -23,7 +23,8 @@ public class AnimeReview {
 	private Category category;
 	
 	@ManyToMany
-	private Collection<Tag> tags; 
+	private Collection<Tag> tags;
+	private String animeDescription; 
 	
 	public AnimeReview(String title) {
 		this.title = title;
@@ -36,15 +37,18 @@ public class AnimeReview {
 //		this.title = title;
 //		this.category = category;
 //	}
-
-	
-	public AnimeReview(String title, Category category, Tag...tags) {
+		
+	public AnimeReview(String title, Category category, String animeDescription, Tag...tags) {
 		// TODO Auto-generated constructor stub
 		this.title = title;
 		this.category = category;
+		this.animeDescription = animeDescription;
 		this.tags = new HashSet<>(asList(tags)); 
 	}
 	
+	public String getAnimeDescription() {
+		return animeDescription;
+	}
 
 	public String getTitle() {
 		// TODO Auto-generated method stub
