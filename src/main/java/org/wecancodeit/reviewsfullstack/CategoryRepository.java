@@ -12,6 +12,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  */
 public interface CategoryRepository extends CrudRepository<Category, Long> {
-	List<Category> findByCategoryTitle(String category);
+	List<Category> findByCategoryTitle(String categoryTitle);
 	
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Categories</title>
 	<!-- styling file goes here -->
@@ -11,7 +11,7 @@
 	
 	<ul th:each="category: ${categoriesModel}">
 		<li>
-			<a th:href="@{/category(id=${category.id})}" th:text="${category.category}"></a>
+			<a th:href="@{/category(id=${category.id})}" th:text="${category.categoryTitle}"></a>
 		</li>
 	</ul>
 </body>
