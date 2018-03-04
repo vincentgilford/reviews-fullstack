@@ -7,12 +7,15 @@
 <body>
 	<header>
 		<h1>Each Category</h1>
+		
 	</header>
+	<p th:text="${singleCategoryModel.categoryTitle}"></p>
+	<p th:text="${singleCategoryModel.categoryDescription}"></p>
 	<div th:each="category: ${singleCategoryModel}">
 		<ul th:each="anime: ${category.animeReview}" >
 			<li>
 				<img th:src="${anime.imageURL}"></img>
-				<a th:href="@{/review(id=${anime.id})}" th:text="${anime}" ></a>
+				<a th:href="@{/review(id=${anime.id})}" th:text="${anime}"></a>
 			</li>		
 		</ul>
 	</div>

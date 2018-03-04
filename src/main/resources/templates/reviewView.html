@@ -15,10 +15,10 @@
 	<div th:each="animeReview: ${reviewModel}">
 		<p th:text="${animeReview.title}" ></p>
 		<img th:src="${animeReview.imageURL}"></img>
-
+		<p th:text="${animeReview.animeDescription}"></p>
 	</div>
 	
-<!-- <h3><a th:href="@{/category(id=${review.movieCategory.id})}">Back to Movie Category</a></h3> -->
+
 	<footer>
 		<button onclick="goBack()">Go Back</button>
 		<!-- <a href="category.html" th:href="@{/category(id=${animeReview.category.id})}">Categories</a> -->

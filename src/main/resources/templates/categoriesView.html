@@ -12,6 +12,7 @@
 	<ul th:each="category: ${categoriesModel}">
 		<li>
 			<a th:href="@{/category(id=${category.id})}" th:text="${category.categoryTitle}"></a>
+			<p th:text="${category.categoryDescription}"></p>
 		</li>
 	</ul>
 </body>

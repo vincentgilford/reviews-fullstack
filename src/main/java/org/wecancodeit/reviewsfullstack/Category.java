@@ -18,10 +18,12 @@ public class Category {
 	@GeneratedValue
 	long id;
 	private String categoryTitle;
+	private String categoryDescription;
+	
 	
 	@OneToMany(mappedBy = "category")
 	private Collection<AnimeReview> animeReviews;
-	private String categoryDescription;
+	
 	
 	@SuppressWarnings("unused")
 	private Category (){}
