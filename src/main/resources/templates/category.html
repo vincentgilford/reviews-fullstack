@@ -11,7 +11,8 @@
 	<div th:each="category: ${singleCategoryModel}">
 		<ul th:each="anime: ${category.animeReview}" >
 			<li>
-				<a th:href="@{/review(id=${anime.id})}" th:text="${anime}"></a>
+				<img th:src="${anime.imageURL}"></img>
+				<a th:href="@{/review(id=${anime.id})}" th:text="${anime}" ></a>
 			</li>		
 		</ul>
 	</div>

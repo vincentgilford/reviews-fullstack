@@ -9,8 +9,7 @@
 	</h1>	
 	<div th:each="animeReview: ${reviewModel}">
 		<p th:text="${animeReview.title}" ></p>
-		<img th:src="${animeReview.imageUrl}" ></img>
-	
+		<img th:src="${animeReview.imageURL}"></img>
 	</div>
 	
 
