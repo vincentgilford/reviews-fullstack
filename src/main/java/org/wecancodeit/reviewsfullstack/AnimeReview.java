@@ -83,6 +83,7 @@ public class AnimeReview {
 		// TODO Auto-generated method stub
 		return category;
 	}
+	
 
 	public Collection<Tag> getTags() {
 		// TODO Auto-generated method stub
