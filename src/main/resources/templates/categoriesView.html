@@ -5,21 +5,29 @@
 	
 	<link rel="stylesheet" type="text/css" href="./css/style.css"></link>
 	<link rel="stylesheet" type="text/css" href="./css/layout.css"></link>
+
+	<script type="text/javascript">
+		function goBack(){
+			window.history.back();
+	} 
+	</script>
 </head>
 
-<body >
-	<div>
+<body class="category_body" >
+	<div class="container_category">
 		
-		<header>
+		<header class="category_header">
 			<h1>A List of Categories</h1>
 		</header>
 		
-		<div th:each="category: ${categoriesModel}">
+		<div class="for_loop_category" th:each="category: ${categoriesModel}">
 			
 				<a th:href="@{/category(id=${category.id})}" th:text="${category.categoryTitle}"></a>
 				<p th:text ="${category.categoryDescription}"></p>		
 		</div>
-	
+	<footer>
+		<button onclick="goBack()">Go Back</button>
+	</footer>
 	</div>
 </body>
 </html>
