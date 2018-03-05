@@ -20,9 +20,9 @@ public class AnimeReviewPopulator implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
-		Category action = new Category("Action", "physical clashing");
+		Category action = new Category("Action", "physical clashing","/images/goku_by_bpsola-d6j32pk.png");
 		categoryRepo.save(action);
-		Category fantasy = new Category("Fantasy", "myth and magic");
+		Category fantasy = new Category("Fantasy", "myth and magic", "/images/Fate-stay-night-saber-hd-desktop-wallpaper.png");
 		categoryRepo.save(fantasy);
 		
 		Tag shonen = new Tag("Shonen");

@@ -23,6 +23,7 @@ public class Category {
 	
 	@OneToMany(mappedBy = "category")
 	private Collection<AnimeReview> animeReviews;
+	private String imageURL;
 	
 	
 	@SuppressWarnings("unused")
@@ -30,14 +31,24 @@ public class Category {
 	
 	public Category(String category) {
 		this.categoryTitle = category;
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	public Category(String category, String categoryDescription, AnimeReview...animeReviews) {
 		this.categoryTitle = category;
 		this.categoryDescription = categoryDescription;
 		this.animeReviews = new HashSet<>(asList(animeReviews));
-		// TODO Auto-generated constructor stub
+	}
+	
+	public Category(String category, String categoryDescription, String imageURL, AnimeReview...animeReviews) {
+		this.imageURL = imageURL;
+		this.categoryTitle = category;
+		this.categoryDescription = categoryDescription;
+		this.animeReviews = new HashSet<>(asList(animeReviews));
+	}
+
+	public String getImageURL() {
+		return imageURL;
 	}
 
 	public String getCategoryDescription() {
