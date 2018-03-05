@@ -2,22 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Category</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css"></link>
+	<link rel="stylesheet" type="text/css" href="./css/layout.css"></link>
+	<script type="text/javascript">
+		function goBack(){
+			window.history.back();
+	} 
+	</script>
 	<!-- styling file goes here -->
 </head>
-<body>
-	<header>
+<body class="categories_body">
+	<div class ="container_categories">
+	<header class="categories_header">
 		<h1>Each Category</h1>
-		
+		<p th:text="${singleCategoryModel.categoryTitle}"></p>
+		<p th:text="${singleCategoryModel.categoryDescription}"></p>
 	</header>
-	<p th:text="${singleCategoryModel.categoryTitle}"></p>
-	<p th:text="${singleCategoryModel.categoryDescription}"></p>
-	<div th:each="category: ${singleCategoryModel}">
-		<ul th:each="anime: ${category.animeReview}" >
-			<li>
-				<img th:src="${anime.imageURL}"></img>
-				<a th:href="@{/review(id=${anime.id})}" th:text="${anime}"></a>
-			</li>		
-		</ul>
+		
+		<div  th:each="category: ${singleCategoryModel}">
+			<span class="for_loop_anime" th:each="anime: ${category.animeReview}">
+				
+			<img id="category_pic" th:src="${anime.imageURL}"></img>
+			<a th:href="@{/review(id=${anime.id})}" th:text="${anime}"></a>
+						
+			</span>
+		</div>
+	<footer>
+		<button onclick="goBack()">Go Back</button>
+	</footer>
+	
 	</div>
 </body>
 </html>

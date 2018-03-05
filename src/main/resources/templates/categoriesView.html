@@ -2,18 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Categories</title>
-	<!-- styling file goes here -->
-</head>
-<body>
-	<header>
-		<h1>A List of Categories</h1>
-	</header>
 	
-	<ul th:each="category: ${categoriesModel}">
-		<li>
-			<a th:href="@{/category(id=${category.id})}" th:text="${category.categoryTitle}"></a>
-			<p th:text ="${category.categoryDescription}"></p>		
-		</li>
-	</ul>
+	<link rel="stylesheet" type="text/css" href="./css/style.css"></link>
+	<link rel="stylesheet" type="text/css" href="./css/layout.css"></link>
+</head>
+
+<body >
+	<div>
+		
+		<header>
+			<h1>A List of Categories</h1>
+		</header>
+		
+		<div th:each="category: ${categoriesModel}">
+			
+				<a th:href="@{/category(id=${category.id})}" th:text="${category.categoryTitle}"></a>
+				<p th:text ="${category.categoryDescription}"></p>		
+		</div>
+	
+	</div>
 </body>
 </html>

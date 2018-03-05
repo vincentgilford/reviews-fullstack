@@ -2,19 +2,63 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+   text-decoration: none;
 }
+
+
+a:link {
+	color: purple;
+}
+
+
 
 .container_reviewView {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-/*	grid-template-rows: 1fr 7fr 1fr;*/
+	grid-template-rows: 1fr 7fr 1fr;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	height: 100vh;
 	grid-gap: 20px;
-	/*	most recent change*/
 }
+
+
+
+.container_categories{
+	display: grid;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 100%;
+	grid-gap: 40px;
+	
+}
+
+.for_loop_anime{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 20px;
+	text-decoration: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+}
+
+.categories_header{
+	
+	grid-column: 1/-1;
+	justify-content: center;
+	align-items: center;
+	border-top:  10px solid black;
+	border-bottom: 10px solid black;
+	flex-direction: column;
+	display: flex;
+} 
+
 
 .review_info{
 	height: 100%;
@@ -40,5 +84,9 @@
 #anime_title{
 	border-bottom: 2px solid black;	
 	align-self: left;
+}
 
+#category_pic{
+	width:300px;
+	height:300px;
 }
