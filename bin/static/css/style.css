@@ -1,0 +1,10 @@
+.review_body, .categories_body, .category_body{
+
+	/*background-color: lightblue;*/
+	background: linear-gradient(cadetblue, lightgray);
+}
+
+./*container_categories{
+	background: radial-gradient(black, lightblue, lightgray);
+
+}*/
