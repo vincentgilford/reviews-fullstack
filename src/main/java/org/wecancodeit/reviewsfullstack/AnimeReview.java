@@ -4,6 +4,7 @@ import static java.util.Arrays.asList;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -87,9 +88,8 @@ public class AnimeReview {
 	}
 	
 
-	public Collection<Tag> getTags() {
-		// TODO Auto-generated method stub
-		return tags;
+	public String getTags() {
+		return tags.toString().replace("[", "").replace("]", "");
 	}
 
 	

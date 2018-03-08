@@ -24,6 +24,8 @@
 			<img class="anime_pic" th:src="${animeReview.imageURL}"></img>
 			
 			<p th:text="${animeReview.animeDescription}"></p>
+
+			<p th:text="'Tags:'+ ${animeReview.tags}">information should be here</p>
 		</div>
 	<footer>
 		<button onclick="goBack()">Go Back</button>

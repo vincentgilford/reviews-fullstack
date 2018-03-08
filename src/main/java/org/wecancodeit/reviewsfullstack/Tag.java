@@ -72,6 +72,11 @@ public class Tag {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return type;
+	}
 	
 	
 	

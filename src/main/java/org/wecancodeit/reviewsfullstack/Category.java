@@ -19,7 +19,7 @@ public class Category {
 	long id;
 	private String categoryTitle;
 	private String categoryDescription;
-	
+
 	
 	@OneToMany(mappedBy = "category")
 	private Collection<AnimeReview> animeReviews;
@@ -47,6 +47,7 @@ public class Category {
 		this.animeReviews = new HashSet<>(asList(animeReviews));
 	}
 
+		
 	public String getImageURL() {
 		return imageURL;
 	}
