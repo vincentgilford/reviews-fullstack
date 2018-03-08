@@ -52,10 +52,9 @@ a:link {
 	flex-direction: column;
     align-items: center;
     justify-content: space-between;
- 
     padding-top: 30px;
 	padding-bottom: 30px;
-
+	background-image: url(${category.imageUrl});
 }
 
 
@@ -122,3 +121,14 @@ a:link {
 	width:300px;
 	height:300px;
 }
+
+/*body{
+    background-image: url([[${review.imageUrl}]]);
+    background-size: cover;
+    }*/
+
+/*
+ .category_pic{
+
+
+ }*/
