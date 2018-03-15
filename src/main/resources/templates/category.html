@@ -21,9 +21,10 @@
 		
 		<div  th:each="category: ${singleCategoryModel}">
 			<span class="for_loop_anime" th:each="anime: ${category.animeReview}">
-				
-			<img id="category_pic" th:src="${anime.imageURL}"></img>
-			<a th:href="@{/review(id=${anime.id})}" th:text="${anime}"></a>
+				<a th:href="@{/review(id=${anime.id})}">
+				<img  id="category_pic" th:src="${anime.imageURL}"></img>
+				</a>
+				<a th:href="@{/review(id=${anime.id})}" th:text="${anime}"></a>
 						
 			</span>
 		</div>

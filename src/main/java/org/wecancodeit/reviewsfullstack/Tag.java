@@ -36,7 +36,7 @@ public class Tag {
 		
 	}
 	
-	public String getTags() {
+	public String getTag() {
 		// TODO Auto-generated method stub
 		return type;
 	}

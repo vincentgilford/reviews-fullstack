@@ -88,8 +88,10 @@ public class AnimeReview {
 	}
 	
 
-	public String getTags() {
-		return tags.toString().replace("[", "").replace("]", "");
+	public Collection<Tag> getTags() {
+
+		return tags; 
+		//		return tags.toString().replace("[", "").replace("]", "");
 	}
 
 	

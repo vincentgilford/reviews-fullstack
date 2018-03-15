@@ -24,12 +24,13 @@
 			<img class="anime_pic" th:src="${animeReview.imageURL}"></img>
 			
 			<p th:text="${animeReview.animeDescription}"></p>
-
-			<p th:text="'Tags:'+ ${animeReview.tags}">information should be here</p>
+		<div class="tag_loop" th:each="tag: ${animeReview.tags}">
+			<a th:href="@{/tag(id=${tag.id})}" th:text="'Tags:'+ ${tag}" ></a>	
+			
+		</div>	
 		</div>
 	<footer>
 		<button onclick="goBack()">Go Back</button>
-		<!-- <a href="category.html" th:href="@{/category(id=${animeReview.category.id})}">Categories</a> -->
 	</footer>
 	</div> 
 </body>

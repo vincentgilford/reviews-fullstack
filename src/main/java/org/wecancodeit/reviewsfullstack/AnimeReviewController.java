@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -36,5 +37,16 @@ public class AnimeReviewController {
 		model.addAttribute("reviewModel", animeReviews.findOne(id));
 		return "reviewView";
 	}
-
+	
+	@RequestMapping("tag")
+	public String showTagsWithAnimeReview(@RequestParam Long id, Model model){
+		model.addAttribute("tagModel", tags.findOne(id)); 
+		return "tags";
+	}
+//	
+//	@RequestMapping("/tags{id}")
+//	public Tag findOneTag(@PathVariable(value="id") long id) {
+//		return tags.findOne(id);
+//	}
+//	
 }

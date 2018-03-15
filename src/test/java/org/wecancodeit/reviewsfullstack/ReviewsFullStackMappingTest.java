@@ -133,29 +133,29 @@ public class ReviewsFullStackMappingTest {
 		assertThat(animeReview.getCategory(),is(action));
 	}
 	
-	@Test
-	public void shouldSaveTagToAnimeReviewRelationship() {
-		Category category = new Category("Action");
-		categoryRepo.save(category);
-		
-		Tag tagOne = new Tag("Shonen");
-		Tag tagTwo = new Tag("SuperPowers");
-		tagRepo.save(tagOne);
-		tagRepo.save(tagTwo);
-		
-		AnimeReview animeReview = new AnimeReview("Naruto", category,"Hokage!!", tagOne, tagTwo);
-		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
-		long animeId = animeReview.getId(); 
-		
-		entityManger.flush();
-		entityManger.clear();
-		
-		animeReview = animeReviewRepo.findOne(animeId);
-	
-		
-		assertThat(animeReview.getTags(), containsInAnyOrder(tagOne,tagTwo));
-	}
-	
+//	@Test
+//	public void shouldSaveTagToAnimeReviewRelationship() {
+//		Category category = new Category("Action");
+//		categoryRepo.save(category);
+//		
+//		Tag tagOne = new Tag("Shonen");
+//		Tag tagTwo = new Tag("SuperPowers");
+//		tagRepo.save(tagOne);
+//		tagRepo.save(tagTwo);
+//		
+//		AnimeReview animeReview = new AnimeReview("Naruto", category,"Hokage!!", tagOne, tagTwo);
+//		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
+//		long animeId = animeReview.getId(); 
+//		
+//		entityManger.flush();
+//		entityManger.clear();
+//		
+//		animeReview = animeReviewRepo.findOne(animeId);
+//	
+//		
+//		assertThat(animeReview.getTags(), containsInAnyOrder(tagOne,tagTwo));
+//	}
+//	
 	
 	@Test
 	public void shouldSaveAndLoadFinalParametersForAnimeRevieSite() {

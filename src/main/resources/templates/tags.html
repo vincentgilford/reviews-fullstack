@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Anime Review</title>
+	
+	<link rel="stylesheet" type="text/css" href="./css/style.css"></link>
+	<link rel="stylesheet" type="text/css" href="./css/layout.css"></link>
+
+	<script type="text/javascript">
+		function goBack(){
+			window.history.back();
+		}
+	</script>
+</head>
+
+<body class="tags_body">
+	<div class="container_tags">
+		<header class="tags_header">
+			<h1>List of Anime with Tag</h1>
+		</header>
+		<div class="tags_info" th:each="tag: ${tagModel}">
+			
+			<h2  id="tag_title" th:text="${tag.tag}"></h2>
+			
+			<p th:text="'Anime'+ ${tag.animeReviews}"></p>
+			
+			<ul th:each="animeImage: ${tag.animeReviews}"> 
+				<li>
+				<img th:src="${animeImage.imageURL}"></img>
+				</li> 
+				<li th:text= "${animeImage.title}"> </li>
+			</ul>	
+	
+		</div>
+	
+	<footer>
+		<button onclick="goBack()">Go Back</button>
+		<!-- <a href="category.html" th:href="@{/category(id=${animeReview.category.id})}">Categories</a> -->
+	</footer>
+	</div> 
+</body>
+</html>
