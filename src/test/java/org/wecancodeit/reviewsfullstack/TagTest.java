@@ -12,7 +12,7 @@ public class TagTest {
 	public void shouldCreateMethodGetTag() {
 		Tag underTest = new Tag("Post-Apocalyptic");
 		
-		String check = underTest.getTags(); //need to return a collection
+		String check = underTest.getTag(); //need to return a collection
 		
 		assertThat(check, is("Post-Apocalyptic"));
 

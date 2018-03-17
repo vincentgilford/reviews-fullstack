@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -24,8 +25,15 @@ public class AnimeReview {
 	@ManyToOne
 	private Category category;
 	
+	
 	@ManyToMany
 	private Collection<Tag> tags;
+	
+	@OneToMany
+	private Collection<Comment> comments; 
+	
+	
+
 	@Lob
 	private String animeDescription;
 	private String imageURL; 
@@ -51,9 +59,7 @@ public class AnimeReview {
 		this.imageURL = imageURL;
 		this.tags = new HashSet<>(asList(tags)); 
 	}
-	
-	
-	
+
 	
 	public AnimeReview(String title, Category category, String animeDescription, Tag...tags) {
 		// TODO Auto-generated constructor stub
@@ -62,6 +68,7 @@ public class AnimeReview {
 		this.animeDescription = animeDescription;
 		this.tags = new HashSet<>(asList(tags)); 
 	}
+	
 	
 	
 	public String getAnimeDescription() {
@@ -87,11 +94,24 @@ public class AnimeReview {
 		return category;
 	}
 	
+	public Collection<Comment> getComments() {
+		return comments;
+	}
 
 	public Collection<Tag> getTags() {
 
 		return tags; 
 		//		return tags.toString().replace("[", "").replace("]", "");
+	}
+	
+	public void removeTag(Long id) {
+		for(Tag tag: tags) {
+			if(tag.getId() == id) {
+				tags.remove(tag); 
+			}
+		}
+		
+		
 	}
 
 	

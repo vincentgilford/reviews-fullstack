@@ -1,12 +1,12 @@
 package org.wecancodeit.reviewsfullstack;
 
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
+import java.util.Date;
 
 import javax.annotation.Resource;
-import javax.swing.text.html.parser.TagElement;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +28,9 @@ public class ReviewsFullStackMappingTest {
 	
 	@Resource
 	private AnimeReviewRepository animeReviewRepo;
+	
+	@Resource
+	private CommentRepository comments; 
 	
 	
 	@Test
@@ -72,7 +75,7 @@ public class ReviewsFullStackMappingTest {
 		
 		tag = tagRepo.findOne(id);
 		
-		assertThat(tag.getTags(), is("anti-hero"));
+		assertThat(tag.getTag(), is("anti-hero"));
 	}
 	
 	
@@ -133,29 +136,29 @@ public class ReviewsFullStackMappingTest {
 		assertThat(animeReview.getCategory(),is(action));
 	}
 	
-//	@Test
-//	public void shouldSaveTagToAnimeReviewRelationship() {
-//		Category category = new Category("Action");
-//		categoryRepo.save(category);
-//		
-//		Tag tagOne = new Tag("Shonen");
-//		Tag tagTwo = new Tag("SuperPowers");
-//		tagRepo.save(tagOne);
-//		tagRepo.save(tagTwo);
-//		
-//		AnimeReview animeReview = new AnimeReview("Naruto", category,"Hokage!!", tagOne, tagTwo);
-//		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
-//		long animeId = animeReview.getId(); 
-//		
-//		entityManger.flush();
-//		entityManger.clear();
-//		
-//		animeReview = animeReviewRepo.findOne(animeId);
-//	
-//		
-//		assertThat(animeReview.getTags(), containsInAnyOrder(tagOne,tagTwo));
-//	}
-//	
+	@Test
+	public void shouldSaveTagToAnimeReviewRelationship() {
+		Category category = new Category("Action");
+		categoryRepo.save(category);
+		
+		Tag tagOne = new Tag("Shonen");
+		Tag tagTwo = new Tag("SuperPowers");
+		tagRepo.save(tagOne);
+		tagRepo.save(tagTwo);
+		
+		AnimeReview animeReview = new AnimeReview("Naruto", category,"Hokage!!", tagOne, tagTwo);
+		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
+		long animeId = animeReview.getId(); 
+		
+		entityManger.flush();
+		entityManger.clear();
+		
+		animeReview = animeReviewRepo.findOne(animeId);
+	
+		
+		assertThat(animeReview.getTags(), containsInAnyOrder(tagOne,tagTwo));
+	}
+	
 	
 	@Test
 	public void shouldSaveAndLoadFinalParametersForAnimeRevieSite() {
@@ -180,6 +183,29 @@ public class ReviewsFullStackMappingTest {
 		assertThat(animeReview.getImageURL(), is("/images/naruto-and-crew.png"));
 		
 	}
+	
+	@Test
+	public void shouldSaveAndLoadReviewToComments() {
+		Category category = new Category("Action");
+		categoryRepo.save(category);
+		
+		Tag tagOne = new Tag("Shonen");
+		Tag tagTwo = new Tag("SuperPowers");
+		tagRepo.save(tagOne);
+		tagRepo.save(tagTwo);
+		
+		AnimeReview animeReview = new AnimeReview("Naruto", category,"Hokage!!", "/images/naruto-and-crew.png", tagOne, tagTwo);
+		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
+		
+		Date date = new Date(); 
+		
+		Comment comment = new Comment(date, "words are words", animeReview);
+		comments.save(comment);
+		
+		
+		assertThat(comment.getReview(), is(animeReview));
+	}
+	
 	
 	
 	

@@ -1,5 +1,7 @@
 package org.wecancodeit.reviewsfullstack;
 
+import java.util.Collection;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -43,10 +45,31 @@ public class AnimeReviewController {
 		model.addAttribute("tagModel", tags.findOne(id)); 
 		return "tags";
 	}
-//	
-//	@RequestMapping("/tags{id}")
-//	public Tag findOneTag(@PathVariable(value="id") long id) {
-//		return tags.findOne(id);
-//	}
-//	
+
+	@RequestMapping("/delete-tag")
+	public String deleteIndvidualTag(@RequestParam Long id, String animeReviewTitle){
+		Tag tagRemoval = tags.findOne(id);
+		AnimeReview underReview = animeReviews.findByTitle(animeReviewTitle);
+//		Long animeReviewid;
+		if(underReview == null) {
+			 return "reviewView";
+		}
+		
+		if(tagRemoval != null) {
+			underReview.removeTag(id);
+		}	 
+		animeReviews.save(underReview);
+		Long animeReviewid =underReview.getId();
+		
+		return "redirect:/reviewView?=" + animeReviewid;
+	 }//still not functioning
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
