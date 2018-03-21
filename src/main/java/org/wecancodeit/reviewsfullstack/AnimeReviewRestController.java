@@ -23,45 +23,19 @@ public class AnimeReviewRestController {
 	private TagRepository tagRepo; 
 	
 	
-	@RequestMapping("/review/{id}/delete-tag")
-	public AnimeReview deleteIndvidualTag(@PathVariable (value="id") long id){
+	@RequestMapping("/review/{animeTitle}/{id}/delete-tag")
+	public AnimeReview deleteIndvidualTag(@PathVariable (value="id") long id, @PathVariable (value="animeTitle") String animeTitle){
+		Tag tagRemove = tagRepo.findOne(id);
+		AnimeReview animeReviewUpdate = animeReview.findByTitle(animeTitle);
+		if(tagRemove != null) {
+			tagRepo.delete(tagRemove.getId());
+		}
 		
-		
+		animeReview.save(animeReviewUpdate); 
 		 
 		return animeReview.findOne(id);
 	}
-	
-	@RequestMapping("/review/{id}/delete-tag")
-	public AnimeReview deleteIndvidualTag(@PathVariable (value="id") long id){
-		
-		
-		 
-		return animeReview.findOne(id);
-	}
-	
-	
-	
-	
-	
-	
-//	@RequestMapping("/delete-tag")
-//	public String deleteIndvidualTag(@RequestParam Long id, String animeReviewTitle){
-//		Tag tagRemoval = tags.findOne(id);
-//		AnimeReview underReview = animeReviews.findByTitle(animeReviewTitle);
-////		Long animeReviewid;
-//		if(underReview == null) {
-//			 return "reviewView";
-//		}
-//		
-//		if(tagRemoval != null) {
-//			underReview.removeTag(id);
-//		}	 
-//		animeReviews.save(underReview);
-//		Long animeReviewid =underReview.getId();
-//		
-//		return "redirect:/reviewView?=" + animeReviewid;
-//	 }//still not functioning
-	
+
 	
 	
 	
