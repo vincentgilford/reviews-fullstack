@@ -46,10 +46,10 @@ public class AnimeReview {
 
 	public AnimeReview() {}
 	
-//	public AnimeReview(String title, Category category) {
-//		this.title = title;
-//		this.category = category;
-//	}
+	public AnimeReview(String title, Category category) {
+		this.title = title;
+		this.category = category;
+	}
 	
 	public AnimeReview(String title, Category category, String animeDescription,  String imageURL, Tag...tags) {
 		// TODO Auto-generated constructor stub
@@ -109,13 +109,9 @@ public class AnimeReview {
 			if(tag.getId() == id) {
 				tags.remove(tag); 
 			}
-		}
-		
-		
+		}	
 	}
 
-	
-	
 	
 	@Override
 	public String toString() {

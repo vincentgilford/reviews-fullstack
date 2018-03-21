@@ -206,7 +206,27 @@ public class ReviewsFullStackMappingTest {
 		assertThat(comment.getReview(), is(animeReview));
 	}
 	
+	@Test
+	public void shouldSaveLoadAnimeReviewToTags() {
+		Category category = new Category("Action");
+		categoryRepo.save(category);
+		
+		Tag tagOne = new Tag("Shonen");
+		Tag tagTwo = new Tag("SuperPowers");
+		tagRepo.save(tagOne);
+		
+		
+		AnimeReview animeReview = new AnimeReview("Naruto", category,"Hokage!!", "/images/naruto-and-crew.png", tagOne, tagTwo);
+		animeReview = animeReviewRepo.save(animeReview);//id created in JPA
+		
+		
+		tagRepo.save(tagTwo);
+		
+		
+		
+	}
 	
+
 	
 	
 	

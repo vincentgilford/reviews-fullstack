@@ -18,13 +18,13 @@ public class Comment {
 	@ManyToOne
 	private AnimeReview review;
 	
-	private String comment;
+	private String commentBody;
 	private Date date;
 	
 
 	public Comment(Date date, String comment, AnimeReview review) {
 		this.date = date;
-		this.comment = comment;
+		this.commentBody = comment;
 		this.review = review;			
 	}
 	
@@ -34,7 +34,7 @@ public class Comment {
 
 
 	public String getComment() {
-		return comment;
+		return commentBody;
 	}
 
 

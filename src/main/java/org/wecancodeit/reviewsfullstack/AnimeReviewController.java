@@ -1,12 +1,11 @@
 package org.wecancodeit.reviewsfullstack;
 
-import java.util.Collection;
+import java.util.Date;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,7 +20,10 @@ public class AnimeReviewController {
 
 	@Resource
 	TagRepository tags;
-
+	
+	@Resource
+	CommentRepository comments; 
+	
 	@RequestMapping("categories")
 	public String showCategories(Model model) {
 		model.addAttribute("categoriesModel", categories.findAll());
@@ -66,10 +68,15 @@ public class AnimeReviewController {
 	
 	
 	
-	
-	
-	
-	
-	
+	@RequestMapping("/add-comment")
+	public String addCommenttoAnimeReview(@RequestParam String commentBody, Long id) {
+		Date date = new Date(); 
+		AnimeReview review = animeReviews.findOne(id);
+		Comment commentToAdd = new Comment(date, commentBody, review ); 
+		comments.save(commentToAdd);
+		
+		return "redirect:/animeReview?id=" + id; 
+		
+	}
 	
 }
